@@ -1,11 +1,10 @@
 package com.mkyong.web.token;
 
-import com.mkyong.cache.WeimobRedisSimpleClient;
+import com.mkyong.cache.RedisMock;
 import com.mkyong.util.StringUtils;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -15,9 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class RedisTokenHandler extends AbstractTokenHandler {
 
-
-    @Resource(name = "weimobSimpleRedisClient")
-    private WeimobRedisSimpleClient redisSimpleClient;
+    private RedisMock redisSimpleClient = new RedisMock();
 
     /**
      * 生成token 并放入session

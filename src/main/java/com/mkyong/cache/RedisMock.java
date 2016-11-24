@@ -1,5 +1,7 @@
 package com.mkyong.cache;
 
+import org.springframework.stereotype.Service;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -18,6 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * .......
  * assert(...);
  */
+@Service("weimobSimpleRedisClient")
 public class RedisMock extends ReidsClientAdapter {
     private Map map = new ConcurrentHashMap();
 

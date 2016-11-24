@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.*;
 
 /**
- * request wrapper: 可重复读取request.getInputStream
+ * request wrapper: request.getInputStream can be read repeatedly
  */
 @Log4j2
 public class RepeatedlyReadRequestWrapper extends HttpServletRequestWrapper {
@@ -60,11 +60,11 @@ public class RepeatedlyReadRequestWrapper extends HttpServletRequestWrapper {
      }
 
      /**
-     * 带本地buffer的InputStream
+     * InputStream with buffer
      */
     private static class CustomServletInputStream extends ServletInputStream {
         /**
-         * 本地buffer
+         * buffer
          */
         private ByteArrayInputStream byteArrayInputStream;
 
