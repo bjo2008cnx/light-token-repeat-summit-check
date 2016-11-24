@@ -24,4 +24,5 @@ Access ```http://localhost:8080/spring4ajax```
 ###4. Project Demo
 Please refer to this article [Spring 4 Ajax Example](http://www.mkyong.com/spring-mvc/spring-4-mvc-ajax-hello-world-example/)
 
-Any questions,please contact with me.
+###5. Added features
+Add RequestInputStreamReplacedFilter to provide repeating access of request.inputStream.
