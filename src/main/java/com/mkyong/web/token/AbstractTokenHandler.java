@@ -38,6 +38,7 @@ public abstract class AbstractTokenHandler {
      */
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Token token) {
         try {
+            System.out.println(1);
             log.info("Start to preHandle.");
             if (token == null) {
                 log.info("Token annotation 为空，略过请求");

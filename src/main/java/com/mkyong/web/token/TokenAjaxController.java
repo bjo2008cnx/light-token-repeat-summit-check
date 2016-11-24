@@ -1,5 +1,6 @@
 package com.mkyong.web.token;
 
+import com.mkyong.cache.RedisMock;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +12,9 @@ public class TokenAjaxController {
     // @JsonView(Views.Public.class) - Optional, limited the json data display to client.
     @RequestMapping(value = "/acquire")
     public String getSearchResultViaAjax() {
-        return TokenUtil.generateTokenKey();
+        String key = TokenUtil.generateTokenKey();
+        System.out.println(key+" : is put to cache");
+        new RedisMock().set(key,"1");
+        return key;
     }
 }

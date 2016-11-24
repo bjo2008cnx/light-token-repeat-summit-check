@@ -1,7 +1,6 @@
 package com.mkyong.web.token;
 
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -12,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 @Log4j2
 public class RedisTokenInterceptor extends HandlerInterceptorAdapter {
 
-    @Autowired
-    private AbstractTokenHandler redisTokenHadler;
+    private AbstractTokenHandler redisTokenHadler = new RedisTokenHandler();
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

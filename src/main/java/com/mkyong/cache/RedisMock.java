@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Service("weimobSimpleRedisClient")
 public class RedisMock extends ReidsClientAdapter {
-    private Map map = new ConcurrentHashMap();
+    private static Map map = new ConcurrentHashMap();
 
     @Override
     public String get(String key) {
