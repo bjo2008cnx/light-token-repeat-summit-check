@@ -1,5 +1,6 @@
 package com.mkyong.web.token;
 
+import com.mkyong.cache.WeimobRedisSimpleClient;
 import com.mkyong.util.StringUtils;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
