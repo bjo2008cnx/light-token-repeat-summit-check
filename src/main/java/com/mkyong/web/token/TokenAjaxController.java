@@ -13,8 +13,9 @@ public class TokenAjaxController {
     @RequestMapping(value = "/acquire")
     public String getSearchResultViaAjax() {
         String key = TokenUtil.generateTokenKey();
-        System.out.println(key+" : is put to cache");
-        new RedisMock().set(key,"1");
+        RedisMock redis = new RedisMock();
+        redis.setnx(key, TokenStatusEnum.INIT.getKey());
+        redis.expire(key, TokenConstant.SESSION_EXPIRE_MINUTES * 60);
         return key;
     }
 }
