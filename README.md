@@ -1,28 +1,14 @@
-Spring 4 MVC Ajax Example
+基于Springmvc4的表单重复提交验证（使用RedisMock来替代redis）
 ===============================
-Template for Spring 4 MVC + jQuery Ajax + Jackson2, using Maven build tool.
-
-###1. Technologies used
+###1. 使用的技术：
 * Spring 4.2.2.RELEASE
 * Jackson 2.6.3
 * jQuery 1.10.2
 * Boostrap 3
-* Maven 3
+* gradle
 
-###2. To Run this project locally
-```shell
-$ git clone https://github.com/mkyong/spring4-mvc-ajax-example
-$ mvn jetty:run
-```
-Access ```http://localhost:8080/spring4ajax```
+###2. 使用：
+Access ```http://localhost:8080/welcome.jsp
 
-###3. To import this project into Eclipse IDE
-1. ```$ mvn eclipse:eclipse```
-2. Import into Eclipse via **existing projects into workspace** option.
-3. Done.
 
-###4. Project Demo
-Please refer to this article [Spring 4 Ajax Example](http://www.mkyong.com/spring-mvc/spring-4-mvc-ajax-hello-world-example/)
 
-###5. Added features
-Add RequestInputStreamReplacedFilter to provide repeating access of request.inputStream.
