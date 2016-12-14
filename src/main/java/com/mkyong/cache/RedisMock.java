@@ -1,26 +1,7 @@
 package com.mkyong.cache;
 
-import org.springframework.stereotype.Service;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
-/**
- * redis 的简单测试工具类，采用map来模拟redis.暂未加expire等功能。
- * 使用栗子：
- *
- * @author Michael.Wang
- * @Tested RedisTokenHandler redisTokenHandler;
- * @Injectable private WeimobRedisSimpleClient redisSimpleClient = new RedisMock();
- * <p/>
- * 或：
- * WeimobRedisSimpleClient weimobRedisSimpleClient = new RedisMock();
- * ......
- * execute(weimobRedisSimpleClient);
- * .......
- * assert(...);
- */
-@Service("weimobSimpleRedisClient")
 public class RedisMock extends ReidsClientAdapter {
     private static Map map = new ConcurrentHashMap();
 
