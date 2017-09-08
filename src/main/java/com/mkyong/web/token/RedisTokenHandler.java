@@ -1,7 +1,7 @@
 package com.mkyong.web.token;
 
 import com.mkyong.cache.RedisMock;
-import com.mkyong.util.StringUtils;
+import com.mkyong.util.StringUtil;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
@@ -54,7 +54,7 @@ public class RedisTokenHandler extends AbstractTokenHandler {
 
     @Override
     protected boolean lockToken(HttpServletRequest request, String tokenId) {
-        if (StringUtils.isEmptyOrNull(tokenId)){
+        if (StringUtil.isEmptyOrNull(tokenId)){
             return false;
         }
         if (redisSimpleClient.exists(tokenId)) {

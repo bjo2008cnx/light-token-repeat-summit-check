@@ -1,5 +1,7 @@
 package com.mkyong.web.filter;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.ReadListener;
@@ -7,6 +9,7 @@ import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.*;
+import java.util.Enumeration;
 
 /**
  * request wrapper: request.getInputStream can be read repeatedly
@@ -21,6 +24,7 @@ public class RepeatedlyReadRequestWrapper extends HttpServletRequestWrapper {
     /**
      * input stream 的buffer
      */
+    @Getter @Setter
     private final String body;
 
     /**
@@ -28,7 +32,6 @@ public class RepeatedlyReadRequestWrapper extends HttpServletRequestWrapper {
      */
     public RepeatedlyReadRequestWrapper(HttpServletRequest request) {
         super(request);
-
         StringBuilder stringBuilder = new StringBuilder();
 
         InputStream inputStream = null;
@@ -45,21 +48,22 @@ public class RepeatedlyReadRequestWrapper extends HttpServletRequestWrapper {
                     stringBuilder.append(charBuffer, BUFFER_START_POSITION, bytesRead);
                 }
             } catch (IOException e) {
-                log.error("Fail to read input stream",e);
+                log.error("Fail to read input stream", e);
             }
         } else {
             stringBuilder.append("");
         }
         body = stringBuilder.toString();
-     }
+        System.out.println("request body:: " + body);
+    }
 
-     @Override
-     public ServletInputStream getInputStream() throws IOException {
-     final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(body.getBytes());
-     return new CustomServletInputStream(byteArrayInputStream);
-     }
+    @Override
+    public ServletInputStream getInputStream() throws IOException {
+        final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(body.getBytes());
+        return new CustomServletInputStream(byteArrayInputStream);
+    }
 
-     /**
+    /**
      * InputStream with buffer
      */
     private static class CustomServletInputStream extends ServletInputStream {
@@ -80,19 +84,19 @@ public class RepeatedlyReadRequestWrapper extends HttpServletRequestWrapper {
             return byteArrayInputStream.read();
         }
 
-         @Override
-         public boolean isFinished() {
-             return false;
-         }
+        @Override
+        public boolean isFinished() {
+            return false;
+        }
 
-         @Override
-         public boolean isReady() {
-             return false;
-         }
+        @Override
+        public boolean isReady() {
+            return false;
+        }
 
-         @Override
-         public void setReadListener(ReadListener readListener) {
+        @Override
+        public void setReadListener(ReadListener readListener) {
 
-         }
-     }
+        }
+    }
 }

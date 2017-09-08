@@ -1,6 +1,7 @@
 package com.mkyong.web.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.mkyong.util.RequestUtil;
 import com.mkyong.web.jsonview.Views;
 import com.mkyong.web.model.AjaxResponseBody;
 import com.mkyong.web.model.SearchCriteria;
@@ -29,6 +30,11 @@ public class AjaxController {
     @JsonView(Views.Public.class)
     @RequestMapping(value = "/search/api/getSearchResult")
     public AjaxResponseBody getSearchResultViaAjax(@RequestBody SearchCriteria search, HttpServletRequest request) {
+
+        String body = RequestUtil.parseRequestBody(request);
+        System.out.println("method: "+request.getMethod());
+        System.out.println("bodyxx:"+body);
+
         AjaxResponseBody result = new AjaxResponseBody();
         //TOKEN: 重复提交处理
         if (TokenUtil.isRepeatedSubmission(request)) {

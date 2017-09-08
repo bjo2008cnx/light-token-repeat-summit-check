@@ -10,6 +10,6 @@ public class WelcomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
-		return "welcomexxxx";
+		return "welcome";
 	}
 }

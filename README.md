@@ -7,7 +7,10 @@
 * Boostrap 3
 * gradle
 
-###2. 使用：
+###2.编译
+使用gradle build 进行编译，然后在tomcat中配置启动war包.
+
+###3 使用：
 Access ```http://localhost:8080/welcome.jsp
 
 表单重复提交开发指南
