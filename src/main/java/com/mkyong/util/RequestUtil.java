@@ -37,12 +37,7 @@ public class RequestUtil {
         } else {
             HttpServletRequest request = (req instanceof HttpServletRequest) ? (HttpServletRequest) req : null;
             if (request != null) {
-                boolean isAjaxRequest = isAjaxRequest(request);
-                if (isAjaxRequest) {
-                    throw new RuntimeException("please add RequestInputStreamReplacedFilter first");
-                } else {
-                    requestBody = parseFormRequestBody(request);
-                }
+                requestBody = parseFormRequestBody(request);
             }
         }
         return requestBody;
@@ -50,13 +45,13 @@ public class RequestUtil {
 
     public static String parseFormRequestBody(HttpServletRequest request) {
         Enumeration<String> names = request.getParameterNames();
-        StringBuilder builder =  new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         builder.append("{");
-        while(names.hasMoreElements()){
+        while (names.hasMoreElements()) {
             String element = names.nextElement();
             String value = request.getParameter(element);
             builder.append(StringUtil.quote(element)).append(":").append(StringUtil.quote(value));
-            if (names.hasMoreElements()){
+            if (names.hasMoreElements()) {
                 builder.append(",");
             }
         }
