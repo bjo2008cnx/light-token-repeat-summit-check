@@ -11,10 +11,8 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 repositories {
+    mavenLocal()
     mavenCentral()
-    maven { url 'http://120.55.76.75:8081/nexus/content/repositories/thirdparty/' }
-    maven { url 'http://120.55.76.75:8081/nexus/content/repositories/weimob/' }
-    maven { url 'http://maven.weimob.com/content/groups/public/' }
     maven { url 'file:../3rdparty/third_repo' }
 }
 
@@ -43,5 +41,5 @@ dependencies {
 
 }
 
-tasks.withType(Compile) { options.encoding = 'UTF-8' }
+tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
 tasks.withType(Javadoc) { options.encoding = 'UTF-8' }
