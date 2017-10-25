@@ -1,0 +1,8 @@
+apply plugin: 'eclipse'
+
+task eclipseResources(type: Copy) {
+    from file('../gradle/eclipse/org.eclipse.core.resources.prefs')
+    into '.settings'
+}
+tasks.eclipse.dependsOn eclipseResources
+tasks.eclipse.dependsOn cleanEclipse

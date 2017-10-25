@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.gradle.plugins.mconf</groupId>
+  <artifactId>gradle-mconf-plugin</artifactId>
+  <version>4.0-SNAPSHOT</version>
+  <versioning>
+    <versions>
+      <version>4.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20140613022335</lastUpdated>
+  </versioning>
+</metadata>
